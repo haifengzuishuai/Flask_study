@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>haifengTest</title>
+</head>
+<body>
+    <img src="{{tupian|default('https://avatar.csdn.net/E/F/B/3_hu_jinghui.jpg')}}">
+<hr>
+<p>评论数：({{comments|length}})</p>
+<ul>
+    {% for comment in comments %}
+    <li>
+        <a href="#">{{comment.user}}</a>
+        <p>{{comment.content}}</p>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
