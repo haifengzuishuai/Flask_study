@@ -1,21 +1,36 @@
 {% extends 'base.html' %}
-{% block tittle %}登录{% endblock %}
+{% block title %}登录{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static',filename='css/login_regist.css') }}">
 {% endblock %}
 {% block main %}
-    <h3 class="page-title">这个地方是登录</h3>
-    <form action="" method="post">
+    <h3 class="page-title">登录</h3>
+    <form action=""method="post">
         <div class="form-container">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="这里输账号">
+                <input type="text" class="form-control" placeholder="手机号码">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="这里输密码">
+                <input type="password" class="form-control" placeholder="密码">
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-block">输完了就点登录，墨迹什么</button>
+                <button class="btn btn-primary btn-block">登录</button>
             </div>
         </div>
     </form>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
