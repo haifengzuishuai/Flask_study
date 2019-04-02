@@ -31,6 +31,7 @@ def regist():
     if request.method == 'GET':
         return render_template('regist.html')
     else:
+
         error = '注册错误'
 
 
