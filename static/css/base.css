@@ -12,3 +12,15 @@ body{
     padding: 10px;
     height:100%;
 }
+
+.page-title{
+    /*margin: auto;*/
+    text-align: center;
+    font-weight: 700;
+}
+
+.index-logo-src{
+    /*border: solid 2px green;*/
+    height: 40px;
+    width: 117px;
+}

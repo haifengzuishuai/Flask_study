@@ -3,7 +3,7 @@ from flask_migrate import Migrate,MigrateCommand
 from app import app
 from models import db
 from models import User
-
+from models import Question
 
 manager = Manager(app)
 migrate = Migrate(app,db)
