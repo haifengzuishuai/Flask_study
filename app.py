@@ -4,8 +4,9 @@ from exts import db
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 import config1
-from models import User, Question
+from models import User, Question, Answer
 from decorators import login_required
+from sqlalchemy import *
 
 SECRET_KEY = os.urandom(24)
 app = Flask(__name__)
@@ -18,7 +19,7 @@ db.init_app(app)
 @app.route('/')
 def index():
     context = {
-        'questions': Question.query.all()
+        'questions': Question.query.order_by(desc('create_time')).all()
     }
     return render_template('index.html', **context)
 
@@ -86,6 +87,28 @@ def question():
         db.session.add(question)
         db.session.commit()
         return render_template('index.html')
+
+
+@app.route('/detail/<question_id>')
+def detail(question_id):
+    question_model = Question.query.filter(Question.id == question_id).first()
+    return render_template('detail.html', question=question_model)
+
+
+@app.route('/add_answer/', methods=['POST'])
+@login_required
+def add_answer():
+    content = request.form.get('answer_content')
+    question_id = request.form.get('question_id')
+    answer = Answer(content=content)
+    user_id = session['user_id']
+    user = User.query.filter(User.id == user_id).first()
+    answer.author = user
+    question = Question.query.filter(Question.id == question_id).first()
+    answer.question = question
+    db.session.add(answer)
+    db.session.commit()
+    return redirect(url_for('detail', question_id=question_id))
 
 
 if __name__ == '__main__':
