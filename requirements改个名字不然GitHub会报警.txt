@@ -18,7 +18,7 @@ Jinja2==2.10
 lxml==4.3.3
 Mako==1.0.9
 MarkupSafe==1.1.1
-pipenv==2018.11.26
+pipenv==2022.1.8
 post==2019.3.22
 public==2019.3.22
 pycodestyle==2.5.0
